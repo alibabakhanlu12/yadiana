@@ -2,7 +2,15 @@ import React from 'react'
 
 function SignUp() {
   return (  
-    <div>SignUp</div>
+    <div> 
+
+
+    <form>
+        
+    </form>
+
+
+    </div>
   )
 }
 
