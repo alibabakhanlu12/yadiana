@@ -1,9 +1,10 @@
 import React from 'react'
 import Image from 'next/image'
 import Intro from '../assets/intro.svg'
+import Link from 'next/link'
 function Navigation () {
   return (
-    <div className="flex flex-col-reverse  md:flex-row">
+    <div className="flex flex-col-reverse  md:flex-row" id='navigation'>
       
       <div className='mt-10'>
         <Image alt='f' src={Intro}/>
@@ -14,7 +15,7 @@ function Navigation () {
         سامانه ای هوشمند آموز برپایه محتوا، آموزش برخط و طراحی آزمون، جهت ارتقا سطح فنی و تخص کت کنندگان در دوره های پیشنهادی با سناریوهای مختل
 
         </p>
-        <button className='text-blue-800 hover:bg-sky-500 px-2 py-2 rounded-md '> ورود به سامانه</button>
+        <Link href='/login' className='text-blue-800 hover:bg-sky-500 px-2 py-2 rounded-md '> ورود به سامانه</Link>
         </div>
 
     </div>

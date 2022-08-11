@@ -1,7 +1,9 @@
+/* eslint-disable @next/next/no-html-link-for-pages */
 import   { useState } from "react";
 import { Transition } from "@headlessui/react";
   
 import {Link} from 'react-scroll'
+import SwipeableTemporaryDrawer from "./Drawer";
 
 function HomePage() {
 	const [isOpen, setIsOpen] = useState(false);
@@ -22,53 +24,53 @@ function HomePage() {
                                     <div className=" flex  justify-between bg-blue-900 rounded-md ">
                                          
                               
-                                    <Link to=''										 
-                                         className="cursor-pointer  bg-blue-700   hover:bg-blue-500 text-white px-3 py-2  rounded    " href={""}									>
+                                    <a href="/login"										 
+                                         className="cursor-pointer  bg-blue-700   hover:bg-blue-500 text-white px-3 py-2  rounded    "  									>
                                            ورود
-                                         </Link>
+                                         </a>
                                             
-                                            <Link to='' 										 
-                                         className="cursor-pointer text-lg  hover:bg-blue-500 bg-blue-900   text-white px-3 py-2 rounded   " href={""}									>
+                                            <a  href="/signup" 										 
+                                         className="cursor-pointer text-lg  hover:bg-blue-500 bg-blue-900   text-white px-3 py-2 rounded   " 									>
                                             ثبت نام
-                                         </Link>
+                                         </a>
                                               
                                          </div>
                                     <div className="flex items-center text-lg  gap-4 ml-10">
                                
                            
-                                        <Link to=""
+                                        <Link to="footer" spy={true} smooth={true} offset={50} duration={500} 
 										 
                                     className="cursor-pointer hover:text-blue-600  text-gray-800    px-3 py-2 rounded-md   " href={""}									>
 									درباره ما
 									</Link>
 
-									<Link to=''
+									<Link to="comments" spy={true} smooth={true} offset={50} duration={500} 
 								 className="cursor-pointer font-sans hover:text-blue-600 text-gray-800   px-3 py-2 rounded-md  font-medium"
 									>
 										 نظرات کاربران
 									</Link>
 
-									<Link  to='' 
+									<Link to="questions" spy={true} smooth={true} offset={50} duration={500} 
                                     className="cursor-pointer   hover:text-blue-600 text-gray-800  px-3 py-2 rounded-md    font-medium"
 									>
 										 سوالات متداول  
 									</Link>
 
-									<Link to=""
+									<Link activeClass="active"  to="propertys" spy={true} smooth={true} offset={50} duration={500} 
 									 
 										className="cursor-pointer   text-gray-800 hover:text-blue-600 px-3 py-2 rounded-md   font-medium"
 									>
 										   ویژگی ها  
 									</Link>
 
-									<Link to=""
+									<Link activeClass="active" to="navigation" spy={true} smooth={true} offset={50} duration={500}
 									 
 									 className="cursor-pointer  hover:text-blue-600   text-gray-800   px-3 py-2 rounded-md "
 								 >
 									    خانه
 								 </Link>
                                
-								 <Link to=""
+								 <Link activeClass="active" to="/" spy={true} smooth={true} offset={50} duration={500}
 									 
 									 className="cursor-pointer  hover:text-blue-600  text-blue-900 font-bold   text-4xl  px-3 py-2 rounded-md "
 								 >
@@ -129,7 +131,8 @@ function HomePage() {
 					</div>
 				</div>
 
-				<Transition
+										{/* <SwipeableTemporaryDrawer></SwipeableTemporaryDrawer> */}
+				 <Transition
 					show={isOpen}
 					enter="transition  ease-out duration-100 transform"
 					enterFrom="opacity-0  scale-95"
@@ -142,45 +145,47 @@ function HomePage() {
 						<div className="md:hidden " id="mobile-menu">
 							<div
 								ref={ref}
-								className="bg-blue-600 ml-32 sticky  px-28 pt-2 pb-5 items-center space-y-5 z-50 sm:px-3  rounded-lg"
+								className="bg-blue-600 ml-32 sticky  px-28 pt-2 pb-5 items-center space-y-6 z-50 sm:px-3  rounded-lg"
 							>
-								<Link
-									to="/"
+								<Link activeClass="active" to="/" spy={true} smooth={true} offset={50} duration={500} 
+									 
 						 
 									className="cursor-pointer   text-white block px-3 py-2 rounded-md text-base font-medium"
 								>
 									خانه   
 								</Link>
-								<Link   to="" 
+								<Link activeClass="active"  to="propertys" spy={true} smooth={true} offset={50} duration={500} 
 									className="cursor-pointer text-white block px-3 py-2 rounded-md text-base font-medium"
 								>
 								  ویژگی ها
 								</Link>
 
-								<Link to="" 
+								<Link to="questions" spy={true} smooth={true} offset={50} duration={500} 
 									className="cursor-pointer  text-white block px-3 py-2 rounded-md text-base font-medium"
 								>
 									   سوالات متداول
 								</Link>
 
-								<Link to=""
+								<Link to="comments" spy={true} smooth={true} offset={50} duration={500} 
 							  	className="cursor-pointer text-white block px-3 py-2 rounded-md text-base font-medium"
 								>
 									   نظرات کاربران
 								</Link>
 
-								<Link to=""
+								<Link to="footer" spy={true} smooth={true} offset={50} duration={500} 
 									className="cursor-pointer text-white block px-3 py-2 rounded-md text-base font-medium"
 								>
 								   درباره ما
 								</Link> 
-                                <Link to=""
+
+
+                                <Link to="/signup"
 									className="cursor-pointer  text-white block px-3 py-2 rounded-md text-base font-medium"
 								>
 								      ثبت نام
 								</Link> 
                                 	
-                                    <Link to=""
+                                    <Link to="/login"
 							  		className="cursor-pointer  text-white block px-3 py-2 rounded-md text-base font-medium"
 								>
 								   ورود
@@ -191,7 +196,7 @@ function HomePage() {
 							</div>
 						</div>
 					)}
-				</Transition>
+				</Transition>  
 			</nav>
  
 	);

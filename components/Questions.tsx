@@ -52,7 +52,7 @@ export default function CustomizedAccordions() {
     };
 
   return (
-    <div dir="rtl" className='flex flex-col text-center gap-3 rounded-md items-center justify-center  relative md:ml-56 ml-20  w-4/6'>
+    <div dir="rtl"  id="questions" className='flex flex-col text-center gap-3 rounded-md items-center justify-center  relative md:ml-56 ml-20  w-4/6'>
                         <h1 className='text-3xl font-bold text-blue-900 my-6'>سوالات متداول</h1>
 
       <Accordion className='rounded-lg border-none ' expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>

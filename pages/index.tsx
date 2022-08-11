@@ -5,8 +5,14 @@ import Head from 'next/head'
 import Propertys from '../components/Propertys'
 import Questions from '../components/Questions'
  import Comments from '../components/Comments'
+ import Footer from '../components/Footer'
+import  React,{useEffect } from 'react'
 
 const Home: NextPage = () => {
+  useEffect(() => {
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+  }, []);
+
   return (
     <div>
       <Head>
@@ -17,6 +23,7 @@ const Home: NextPage = () => {
     <Propertys></Propertys>
     <Questions></Questions>
     <Comments></Comments>
+    <Footer></Footer>
   </div>
   )
 }

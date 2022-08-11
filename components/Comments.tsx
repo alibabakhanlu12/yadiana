@@ -1,10 +1,10 @@
-/* eslint-disable react/jsx-key */
-import React, { useRef, useState } from "react";
-// Import Swiper React components
+ 
+import React from "react";
+ 
 import { Swiper, SwiperSlide } from "swiper/react";
 import {Autoplay} from 'swiper'
 import "swiper/css/bundle";
-// Import Swiper styles
+ 
 import user1 from '../assets/user1.jpeg'
 import user2 from '../assets/user2.jpeg'
 import user3 from '../assets/user3.jpg'
@@ -18,7 +18,7 @@ import Image from "next/image";
 
 
 export default function Comments( )  {
-    const  informations=[{
+    const  informations=[{ 
         id:1,
         image :user1,
         username:"@hsjf",
@@ -80,7 +80,7 @@ export default function Comments( )  {
     
      
   return (
-    <>
+    <div id="comments">
       <h3 className="text-center text-2xl text-blue-600 font-bold font-serif mt-20">
         نظرات کاربران 
     
@@ -88,24 +88,11 @@ export default function Comments( )  {
        <h2 className="text-center text-xl text-blue-300  mb-5" >مارا در شبکه های اجتماعی دنبال کنید</h2>
       <br />
       <Swiper 
-       breakpoints={{
-  
-        390: {
-          width: 390,
-          slidesPerView: 2,
-        },
-        600: {
-            width: 600,
-            slidesPerView:3
-        },
-  
-        900: {
-          width: 900,
-          slidesPerView: 4,
-        },
-      }}
-    
-      watchSlidesProgress={true}  slidesPerView={4} className="mySwiper" autoplay={{delay: 3000  }} loop={true}   modules={[Autoplay]}>
+      watchSlidesProgress={true}  slidesPerView={4} className="mySwiper" autoplay={{delay: 3000  }} loop={true}   modules={[Autoplay]}
+      
+      
+      
+      >
         
         <div className="">
         {  informations.map((item:any  )=>  {
@@ -115,12 +102,12 @@ export default function Comments( )  {
                 
                     <Image src={item.image} className=' rounded-full mt-8'   width={100}  height={100}   alt={item.des} />
                     <h2 className="mt-3"> {item.username}</h2>
-                    <p dir="rtl" className="h-40 mt-5 text-center text-slate-600"> {item.des}</p>
+                    <p dir="rtl" className="h-40 mt-12 text-center text-slate-600"> {item.des}</p>
                    
                     </SwiperSlide>
 )})}
         </div>
          </Swiper>
-    </>
+    </div>
   );
 }
