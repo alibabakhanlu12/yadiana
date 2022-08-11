@@ -1,26 +1,36 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.swiper {
+ gap: 20px;
+ flex-direction: column;
+ align-items: center;
+ 
+}
+.swiper-slide {
+ margin: 13px;
+ 
+   
+ 
+} 
+.swiper-container {
+  width: 900;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+@media screen and (min-width: 390) {
+  .swiper-container {
+    width: 390px;
   }
-  body {
-    color: white;
-    background: black;
+}
+@media screen and (min-width: 600) {
+  .swiper-container {
+    width: 600;
+  }
+}
+@media screen and (min-width: 900) {
+  .swiper-container {
+    width: 900;
   }
 }
