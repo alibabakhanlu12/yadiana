@@ -1,65 +1,105 @@
-import React,{useState} from 'react'
-import Pass from '../assets/pass.png'
-import Image from 'next/image'
+ 
+ import React, { useState } from 'react'
  import Link from 'next/link'
+ import { Formik ,Form, Field ,ErrorMessage} from 'formik' 
+ import Image from 'next/image'
+ import  * as yup from 'yup'
+ import Pass from '../assets/pass.png'
+ import { useRouter } from 'next/router'
+ const initialValues = {
+    email:'' ,
+    pass:'',
+ 
+  } 
+
+ const validationSchema = yup.object().shape({
+     email: yup.string()
+    .email('Please enter a valid email')
+    .required('Email is required'),
+
+       
+    pass:yup.string().required('pass is reqiured').min(8, 'password must have 8 characters long'),
+  //  repass: yup.string()
+  //   .oneOf([yup.ref('pass'), null], 'Passwords must match')
+  //   .required('Confirm Password is required')
+
+  })
+
+
 function Login() {
+  const router = useRouter()
+  
+const onSubmit =(values:any)=>{
+    console.log(values);
+    router.push('/')
+  }
   const [Type , setType] = useState('password')
  
- 
- 
-  const [email , setemail ] = useState('')
-  const [pass , setpass] = useState('')
- 
- 
-  const emailhandler = (e:any) =>{
-    setemail( e.target.value)
-  }
-  const passhandler = (e:any) =>{
-    setpass(  e.target.value)
-  }
 
  
-
- const onsubmitHandler =(e:any) =>{
-  if(email.length<=6){
-    console.log('sfdffsdf');
-  }
-  e.preventDefault()
-console.log(  pass  , email);
-
-  }
-  const keydownhandler = ()=>{
-    if(email.length<=8){
-      console.log("not enoufh");
-    } else {
-      console.log('its enought');
-    }
-  }
-
   return (  
-    <div className='flex flex-col '> 
-
-      <h1 className='text-center text-3xl  text-blue-700'> ورود به سیستم</h1>
-
-    <form onSubmit={onsubmitHandler}  className='flex flex-col text-right justify-center items-end w-4/6   gap-4'>
+    
+        <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema} className=' bg-slate-600'> 
+        <React.Fragment>
+  <h1 className='text-center text-4xl font-extrabold mt-10   text-blue-700'>ورود به سیستم</h1> 
+ 
+          <Form className='flex flex-col  text-right w-4/6  md:w-2/6 ml-36  md:ml-96 gap-2 '>
         
-        <label htmlFor='name'>ایمیل</label>
-        <input dir="rtl" onKeyDown={keydownhandler} type='email' className='' value={email} onChange={emailhandler}/>
+ 
+     
 
-
-        <label htmlFor='name'>رمز عبور</label>
+      <div className='flex flex-col gap-2'>
+        <label htmlFor='email'>ایمیل</label>
+        <Field          
+         type='email' 
+         id='email'
+         className='rounded-md p-1' 
+        name='email'
+        dir="rtl" 
+        placeholder=  '   ایمیل خود را وارد کنید'
+         />
+          <div className='text-red-700'>
+          <ErrorMessage name='email'/>  
+         </div>
+          </div>
+     
+          <div className='flex flex-col gap-2'>
+        <label htmlFor='pass'>رمز عبور</label>
         <div className='flex flex-row-reverse'>
-        <input  dir="rtl"  type={Type}  value={pass} onChange={passhandler}/> <Image onClick={( )=> Type==='password' ?setType('text') :setType('password') } width={25} height={25} src={Pass} alt ='f'/>   
+        <Field 
+          className='rounded-md p-1' 
+         id='pass' 
+        type={Type}
+         name='pass'  
+         dir="rtl" 
+         placeholder=  'رمز عبور خود را وارد کنید'    
+           /> 
+         <Image 
+           onClick={( )=> Type==='password' ?setType('text') :setType('password') }
+            width={25} 
+            height={25} 
+            src={Pass} 
+            alt ='f'
+            />   
         
         </div> 
- 
-       <button className='bg-blue-900 rounded-md px-3 py-1 text-white' > ورود</button>
-    </form>
-    <h2 className='text-center'>قبلا عضو شده اید؟ <Link href='/signup' > ثبت نام</Link>  کنید</h2>
-   
+        <div className='text-red-700'>
+        <ErrorMessage name='pass'/>   
+        </div>
+
+        </div>
+       
 
 
-    </div>
+           <button className='bg-blue-700 px-3 py-1 font-serif text-xl rounded-md text-white' type="submit"  > ورود </button>
+        </Form>
+        <h2 className='text-center'>   اگر رمز عبور خود را فراموش کرده اید ؟<Link href='/forget-password'><span className='text-blue-900'> کلیک </span></Link> کنید</h2>
+      
+         <h2 className='text-center'>اکانتی ندارید؟<Link href='/signup' className='text-blue-900 ' >    ثبت نام </Link> کنید</h2>
+</React.Fragment>
+
+    </Formik>
+    
   )
 }
 
