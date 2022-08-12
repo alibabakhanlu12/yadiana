@@ -6,6 +6,7 @@
  import  * as yup from 'yup'
  import Pass from '../assets/pass.png'
  import { useRouter } from 'next/router'
+import Head from 'next/head'
  const initialValues = {
     name:'',
     family:'',
@@ -35,6 +36,9 @@
 
 
 function SignUp() {
+  <Head>
+  <title> صفحه ثبت نام</title>
+</Head>
   const router = useRouter()
   
 const onSubmit =(values:any)=>{

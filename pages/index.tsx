@@ -9,6 +9,10 @@ import Questions from '../components/Questions'
 import  React,{useEffect } from 'react'
 
 const Home: NextPage = () => {
+
+  <Head>
+    <title> صفحه اصلی </title>
+  </Head>
   useEffect(() => {
     window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
   }, []);
