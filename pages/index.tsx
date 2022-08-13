@@ -1,11 +1,11 @@
 import type { NextPage } from 'next'
-import Navbar from '../components/Navbar'
-import Navigation from '../components/Navigation'
+import Navbar from '../example/homeComponents/Navbar'
+import Navigation from '../example/homeComponents/Navigation'
 import Head from 'next/head'
-import Propertys from '../components/Propertys'
-import Questions from '../components/Questions'
- import Comments from '../components/Comments'
- import Footer from '../components/Footer'
+import Propertys from '../example/homeComponents/Propertys'
+import Questions from '../example/homeComponents/Questions'
+ import Comments from '../example/homeComponents/Comments'
+ import Footer from '../example/homeComponents/Footer'
 import  React,{useEffect } from 'react'
 
 const Home: NextPage = () => {

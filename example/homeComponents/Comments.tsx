@@ -5,13 +5,13 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import {Autoplay} from 'swiper'
 import "swiper/css/bundle";
  
-import user1 from '../assets/user1.jpeg'
-import user2 from '../assets/user2.jpeg'
-import user3 from '../assets/user3.jpg'
-import user4 from '../assets/user4.jpg'
-import user5 from '../assets/user5.jpeg'
-import user6 from '../assets/user6.jpeg'
-import user7 from '../assets/user7.jpeg'
+import user1 from '../../assets/user1.jpeg'
+import user2 from '../../assets/user2.jpeg'
+import user3 from '../../assets/user3.jpg'
+import user4 from '../../assets/user4.jpg'
+import user5 from '../../assets/user5.jpeg'
+import user6 from '../../assets/user6.jpeg'
+import user7 from '../../assets/user7.jpeg'
 
 import "swiper/css";
 import Image from "next/image";    

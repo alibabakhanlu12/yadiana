@@ -1,9 +1,14 @@
 import type { NextPage } from "next";
-import Layout from '../../../components/Layout'
+import PageTitle from '../../../example/components/Typography/PageTitle'
+import Layout from '../../../example/containers/Layout'
 
-const UserManagement:NextPage =()=>{
-return (
-    <Layout>UserManagement</Layout>
-)
+const UserManagements :NextPage = () =>{
+    return (
+       
+    <Layout>
+    <PageTitle>Blank</PageTitle>
+  </Layout>
+
+    )
 }
-export default  UserManagement
+export default  UserManagements

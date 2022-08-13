@@ -3,7 +3,6 @@ import   { useState } from "react";
 import { Transition } from "@headlessui/react";
   
 import {Link} from 'react-scroll'
-import SwipeableTemporaryDrawer from "./Drawer";
 
 function HomePage() {
 	const [isOpen, setIsOpen] = useState(false);
@@ -15,7 +14,10 @@ function HomePage() {
                                 
                           
 				<div className="w-full ">
-					<div className="flex items-center h-20  w-full  ">
+					<div className="flex items-center h-20 -mr-10  w-full  bg-gray-200">
+					
+					 	  {isOpen?<h1   className="text-blue-900 text-center text-extrabold -mr-5 text-5xl"> یادیانا</h1>:null}  
+					
 						<div className="flex items-center justify-evenly   w-full">
 						
 							<div className="hidden md:block">
@@ -145,7 +147,7 @@ function HomePage() {
 						<div className="md:hidden " id="mobile-menu">
 							<div
 								ref={ref}
-								className="bg-blue-600 ml-32 sticky  px-28 pt-2 pb-5 items-center space-y-6 z-50 sm:px-3  rounded-lg"
+								className="bg-blue-600 ml-32 sticky  px-28 pt-2 pb-5 items-center space-y-4 z-50 sm:px-6  rounded-lg"
 							>
 								<Link activeClass="active" to="/" spy={true} smooth={true} offset={50} duration={500} 
 									 

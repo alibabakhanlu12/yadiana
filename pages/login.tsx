@@ -1,6 +1,6 @@
 
 import type { NextPage } from "next"
-import Login from "../components/Login"
+import Login from "../example/homeComponents/Login"
 import Head from "next/head"
 const LoginPage: NextPage = () => {
 

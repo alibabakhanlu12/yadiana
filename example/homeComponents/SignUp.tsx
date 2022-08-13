@@ -4,7 +4,7 @@
  import { Formik ,Form, Field ,ErrorMessage} from 'formik' 
  import Image from 'next/image'
  import  * as yup from 'yup'
- import Pass from '../assets/pass.png'
+ import Pass from '../../assets/pass.png'
  import { useRouter } from 'next/router'
 import Head from 'next/head'
  const initialValues = {

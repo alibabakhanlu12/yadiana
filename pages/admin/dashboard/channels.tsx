@@ -1,9 +1,15 @@
-import type { NextPage } from "next";
-import Layout from '../../../components/Layout'
+import PageTitle from '../../../example/components/Typography/PageTitle'
+import Layout from '../../../example/containers/Layout'
 
-const Channels:NextPage =()=>{
-return (
-    <Layout>Channels</Layout>
-)
+import type { NextPage } from "next";
+
+const Channels :NextPage = () =>{
+    return (
+        
+    <Layout>
+    <PageTitle>Blank</PageTitle>
+  </Layout>
+
+    )
 }
-export default  Channels
+export default Channels

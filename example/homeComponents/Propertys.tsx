@@ -1,8 +1,8 @@
 import React , {useState} from 'react'
 import Image from 'next/image'
-import ilustrate1 from   '../assets/ilustrate1.webp'
-import ilustrate2 from   '../assets/ilustrate2.webp'
-import ilustrate3 from   '../assets/ilustrate3.webp'
+import ilustrate1 from   '../../assets/ilustrate1.webp'
+import ilustrate2 from   '../../assets/ilustrate2.webp'
+import ilustrate3 from   '../../assets/ilustrate3.webp'
 
 function Propertys() {
  
@@ -29,18 +29,18 @@ function Propertys() {
   return (
     <div id='propertys'>
      
-    <h1 className=' mt-20 mb-20 text-slate-500  text-center text-3xl'> ویژگی های یادینا
+    <h1 className=' mt-20 mb-10 text-slate-500  text-center text-3xl'> ویژگی های یادینا
 </h1>
-<p className=' mb-6 text-center text-xl '>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است </p>
-    <div className='flex mt-10 mx-16 flex-col items-center justify-center gap-50 md:flex-row-reverse'>
+<p className=' mb-6 text-center px-48 text-slate-500 text-xl '>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است </p>
+    <div className='flex mt-10   flex-col items-center justify-evenly  md:flex-row-reverse'>
       
-      <Image src={image} width={900} height={900} alt='sd'/>
-<div className=' gap-4  ml-5' >
+      <Image src={image} width={600} height={520} alt='sd'/>
+<div className=' gap-4 ' >
 
     {info.map((item) =>(
       
   
-      <div key={item.id}   className='flex transition duration-300 ease-linear hover:transform  active:bg-blue-600 mt-10 mx-32 items-center justify-center bg-slate-200 cursor-pointer rounded-lg ' onClick={() =>{setImage(item.image)}}>
+      <div key={item.id}   className='flex transition duration-300 ease-linear hover:transform  active:bg-blue-600 mt-10  items-center justify-center bg-slate-200 cursor-pointer rounded-lg ' onClick={() =>{setImage(item.image)}}>
       
       <div className='flex flex-row-reverse items-center  w-80  ' >
       <h2 className='bg-slate-300 rounded-full w-32 text-center h-10 '>  {item.id}</h2>

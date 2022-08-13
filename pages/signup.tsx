@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import SignUp from "../components/SignUp"; 
+import SignUp from "../example/homeComponents/SignUp"; 
 
 const SignUpPage:NextPage =() =>{
     return (
