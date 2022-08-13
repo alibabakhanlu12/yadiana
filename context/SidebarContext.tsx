@@ -71,7 +71,7 @@ export const SidebarProvider = ({ children }: ISidebarPovider) => {
       }
     }
   }, [scrollY, storageScrollY, isSidebarOpen])
-
+    
   const context = {
     isSidebarOpen,
     scrollY,
