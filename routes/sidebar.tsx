@@ -1,9 +1,3 @@
-/**
- * ⚠ These are used just to render the Sidebar!
- * You can include any link here, local or external.
- *
- */
-
 interface IRoute {
   path?: string;
   icon?: string;
