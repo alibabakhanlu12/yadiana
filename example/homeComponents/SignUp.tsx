@@ -36,29 +36,27 @@ import Head from 'next/head'
 
 
 function SignUp() {
-  <Head>
-  <title> صفحه ثبت نام</title>
-</Head>
-  const router = useRouter()
+   const router = useRouter()
   
 const onSubmit =(values:any)=>{
     console.log(values);
-    router.push('/')
+    router.push('/admin/dashboard/')
   }
-  const [Type , setType] = useState('password')
-  const [Type2 , setType2] = useState('password') 
-
+   <Head>
+      <title>صفحه ثبت نام</title>
+    </Head>
+    
  
   return (  
-    
-        <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema} className='ml-10 bg-slate-600 mb-10'> 
+  
+        <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema} className='container   flex-2 mb-10'> 
         <React.Fragment>
   <h1 className='text-center text-4xl font-extrabold mt-10   text-blue-700'>ثبت نام در سیستم</h1> 
  
-          <Form className='flex flex-col  text-right w-4/6  md:w-2/6 ml-36  md:ml-96 gap-2 '>
+          <Form className='flex flex-2 flex-col place-items-center mt-5  gap-2 '>
         
         <div className='flex flex-col gap-2'>
-        <label htmlFor='name'>نام</label>
+        <label dir='rtl' htmlFor='name'>نام</label>
         <Field
             dir="rtl" 
             type='text'
@@ -73,7 +71,7 @@ const onSubmit =(values:any)=>{
          </div>
 
          <div className='flex flex-col gap-2'>
-        <label htmlFor='family'>نام خانوادگی</label>
+        <label dir='rtl' htmlFor='family'>نام خانوادگی</label>
         <Field 
        
          dir="rtl"  
@@ -89,7 +87,7 @@ const onSubmit =(values:any)=>{
       </div>
          
       <div className='flex flex-col gap-2'>
-        <label htmlFor='phone'> شماره موبایل</label>
+        <label dir='rtl' htmlFor='phone'> شماره موبایل</label>
         
         <Field 
         dir="rtl" 
@@ -107,7 +105,7 @@ const onSubmit =(values:any)=>{
       </div>
 
       <div className='flex flex-col gap-2'>
-        <label htmlFor='email'>ایمیل</label>
+        <label dir='rtl' htmlFor='email'>ایمیل</label>
         <Field          
          type='email' 
          id='email'
@@ -122,23 +120,17 @@ const onSubmit =(values:any)=>{
           </div>
      
           <div className='flex flex-col gap-2'>
-        <label htmlFor='pass'>رمز عبور</label>
+        <label dir='rtl' htmlFor='pass'>رمز عبور</label>
         <div className='flex flex-row-reverse'>
         <Field 
-          className='rounded-md p-2 pl-40' 
+          className='rounded-md p-2  ' 
          id='pass' 
-        type={Type}
+        type='password'
          name='pass'  
          dir="rtl" 
          placeholder=  'رمز عبور خود را وارد کنید'    
            /> 
-         <Image 
-           onClick={( )=> Type==='password' ?setType('text') :setType('password') }
-            width={25} 
-            height={25} 
-            src={Pass} 
-            alt ='f'
-            />   
+        
         
         </div> 
         <div className='text-red-700'>
@@ -147,23 +139,17 @@ const onSubmit =(values:any)=>{
 
         </div>
         <div className='flex flex-col gap-2' >
-        <label htmlFor='repass'> تکرار رمز عبور</label>
+        <label dir='rtl' htmlFor='repass'> تکرار رمز عبور</label>
         <div className='flex flex-row-reverse'>
         <Field
-         className='rounded-md p-2 pl-40' 
+         className='rounded-md p-2  ' 
          id='repass' 
-        type={Type2}
+        type='password'
         name='repass'
         dir="rtl" 
         placeholder=  'رمز عبور خود را دوباره وارد کنید'    
             /> 
-              <Image
-             onClick={( )=> Type2==='password' ?setType2('text') :setType2('password') } 
-           width={25} 
-           height={25}
-            src={Pass} 
-            alt ='f'
-            />       
+                  
           </div>
           <div className='text-red-700'>
           <ErrorMessage name='repass'/>    

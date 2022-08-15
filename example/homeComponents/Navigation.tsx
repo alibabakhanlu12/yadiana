@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import Intro from '../../assets/intro.png'
+import Intro from '../../public/assets/intro.png'
 import Link from 'next/link'
 function Navigation () {
   return (

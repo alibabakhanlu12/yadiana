@@ -1,10 +1,9 @@
  
- import React, { useState } from 'react'
  import Link from 'next/link'
  import { Formik ,Form, Field ,ErrorMessage} from 'formik' 
- import Image from 'next/image'
+import React from 'react' 
  import  * as yup from 'yup'
- import Pass from '../../assets/pass.png'
+ 
  import { useRouter } from 'next/router'
  const initialValues = {
     email:'' ,
@@ -32,19 +31,17 @@ function Login() {
   
 const onSubmit =(values:any)=>{
     console.log(values);
-    router.push('/')
+    router.push('/admin/dashboard')
   }
-  const [Type , setType] = useState('password')
  
-
  
   return (  
     
-        <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema} className=' bg-slate-600'> 
+        <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema} className='flex flex-col items-center justify-center bg-slate-600'> 
         <React.Fragment>
   <h1 className='text-center text-4xl font-extrabold mt-10   text-blue-700'>ورود به سیستم</h1> 
  
-          <Form className='flex flex-col  text-right w-4/6  md:w-2/6 ml-36  md:ml-96 gap-2 '>
+          <Form className='flex flex-col    items-center justify-center  text-right  px-20  mt-10 gap-2 '>
         
  
      
@@ -66,22 +63,15 @@ const onSubmit =(values:any)=>{
      
           <div className='flex flex-col gap-2'>
         <label htmlFor='pass'>رمز عبور</label>
-        <div className='flex flex-row-reverse'>
+        <div className='flex flex-row-reverse -gap-10'>
         <Field 
-          className='rounded-md p-1' 
+          className='rounded-md  p-1 ' 
          id='pass' 
-        type={Type}
+        type='password'
          name='pass'  
          dir="rtl" 
          placeholder=  'رمز عبور خود را وارد کنید'    
            /> 
-         <Image 
-           onClick={( )=> Type==='password' ?setType('text') :setType('password') }
-            width={25} 
-            height={25} 
-            src={Pass} 
-            alt ='f'
-            />   
         
         </div> 
         <div className='text-red-700'>

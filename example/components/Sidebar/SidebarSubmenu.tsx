@@ -20,8 +20,6 @@ interface ISidebarSubmenu {
 
 function SidebarSubmenu({ route, linkClicked }: ISidebarSubmenu) {
   const { pathname } = useRouter()
-  const { saveScroll } = useContext(SidebarContext)
-
   const [isDropdownMenuOpen, setIsDropdownMenuOpen] = useState(
     route.routes
     ? route.routes.filter((r) => {
@@ -45,7 +43,7 @@ function SidebarSubmenu({ route, linkClicked }: ISidebarSubmenu) {
       <button
         className={`inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 ${
           isDropdownMenuOpen
-            ? 'dark:text-gray-100 text-gray-800'
+            ? 'dark:text-gray-300 text-gray-800'
             : ''
         }`}
         onClick={handleDropdownMenuClick}

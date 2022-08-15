@@ -21,7 +21,7 @@ function SidebarContent({ linkClicked }: ISidebarContent) {
   const appName = process.env.NEXT_PUBLIC_APP_NAME
 
   return (
-    <div className="text-gray-500 dark:text-gray-400">
+    <div className="text-gray-500 mt-10 dark:text-gray-400">
       <Link href="/#" passHref>
         <div className='ml-6 py-6'>
           <a

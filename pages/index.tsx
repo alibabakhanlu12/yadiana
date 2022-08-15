@@ -4,27 +4,26 @@ import Navigation from '../example/homeComponents/Navigation'
 import Head from 'next/head'  
 import Questions from '../example/homeComponents/Questions'
 import Footer from '../example/homeComponents/Footer'
-import  React,{useEffect ,useState} from 'react'
+import  React,{useEffect } from 'react'
 import Image from 'next/image'
-import ilustrate1 from   '../assets/ilustrate1.webp'
-import ilustrate2 from   '../assets/ilustrate2.webp'
-import ilustrate3 from   '../assets/ilustrate3.webp'
+ 
 import { Swiper, SwiperSlide } from "swiper/react";
 import {Autoplay} from 'swiper'
 import "swiper/css/bundle";
-import user1 from '../assets/user1.jpeg'
-import user2 from '../assets/user2.jpeg'
-import user3 from '../assets/user3.jpg'
-import user4 from '../assets/user4.jpg'
-import user5 from '../assets/user5.jpeg'
-import user6 from '../assets/user6.jpeg'
-import user7 from '../assets/user7.jpeg'
+import user1 from '../public/assets/user1.jpeg'
+import user2 from '../public/assets/user2.jpeg'
+import user3 from '../public/assets/user3.jpg'
+import user4 from '../public/assets/user4.jpg'
+import user5 from '../public/assets/user5.jpeg'
+import user6 from '../public/assets/user6.jpeg'
+import user7 from '../public/assets/user7.jpeg'
 import "swiper/css";
+import Propertys from '../example/homeComponents/Propertys'
 
 
-const Home: NextPage = ({informations,Commentsinformation}:any) => {
+const Home: NextPage = ({ Commentsinformation}:any) => {
  
-  const [image , setImage] = useState(ilustrate1);
+ 
 
   <Head>
     <title> صفحه اصلی </title>
@@ -40,44 +39,10 @@ const Home: NextPage = ({informations,Commentsinformation}:any) => {
       </Head>
      <Navbar></Navbar>
     <Navigation></Navigation>
- 
- 
-    <div id='propertys'>
-     
-    <h1 className=' mt-20 mb-10 text-slate-500  text-center text-3xl'> ویژگی های یادینا
-</h1>
-<p className=' mb-6 text-center px-48 text-slate-500 text-xl '>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است </p>
-    <div className='flex mt-10   flex-col items-center justify-evenly  md:flex-row-reverse'>
-      
-      <Image src={image} width={600} height={520} alt='sd'/>
-<div className=' gap-4 ' >
-
-    { informations.map((item:any) =>(
-      
-  
-      <div key={item.id}   className='flex transition duration-300 ease-linear hover:transform  active:bg-blue-600 mt-10  items-center justify-center bg-slate-200 cursor-pointer rounded-lg ' onClick={() =>{setImage(item.image)}}>
-      
-      <div className='flex flex-row-reverse items-center  w-80  ' >
-      <h2 className='bg-slate-300 rounded-full w-32 text-center h-10 '>  {item.id}</h2>
-     <div className='flex flex-col ' >
-      <h2 className='text-2xl text-center'>  {item.title}</h2>
-     <p className='text-center'> {item.des}    </p>
-      </div>
-
-        </div>
-
-
-      </div>
-
-  ))}
-
-  </div>
-    </div>
-    </div>
+    <Propertys></Propertys>
     <Questions></Questions>
- 
-      
-    <div id="comments">
+   
+     <div id="comments">
       <h3 className="text-center text-2xl text-blue-600 font-bold font-serif mt-20">
         نظرات کاربران 
     
@@ -86,18 +51,14 @@ const Home: NextPage = ({informations,Commentsinformation}:any) => {
       <br />
       <Swiper 
       watchSlidesProgress={true}  slidesPerView={4} className="mySwiper" autoplay={{delay: 3000  }} loop={true}   modules={[Autoplay]}
-      
-      
-      
-      >
-        
-        <div className="">
+       >
+         <div className="">
         {  Commentsinformation.map((item:any  )=>  {
                    
                    return (
                    < SwiperSlide  key={item.id} className=' bg-slate-100 rounded-2xl flex  items-center justify-center flex-col m-10 mt-10'>
                 
-                    <Image src={item.image} className=' rounded-full mt-8'   width={100}  height={100}   alt={item.des} />
+                    <Image src={item.image} className=' rounded-full mt-8'   width={100}  height={100}   alt={item.id} />
                     <h2 className="mt-3"> {item.username}</h2>
                     <p dir="rtl" className="h-40 mt-12 text-center text-slate-600"> {item.des}</p>
                    
@@ -184,27 +145,10 @@ export async function getServerSideProps( ) {
     icon:"../assets/linkedin.png"
  },] 
 
-  const info = [
-    {
-      id:1,
-      image:ilustrate1,
-      title:"مدیریت محتوا",
-      des:"لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز"
-    }, {
-      id:2,
-      image:ilustrate2,
-      title:"یادگیری الکترونیکی",
-      des:"لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز"
-    }, {
-      id:3,
-      image:ilustrate3,
-      title:"لورم ایپسوم",
-      des:"لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای ش د نیاز"
-    },    
-  ]    
+   
   return {
     props:{
-      informations:info,
+ 
       Commentsinformation:commentsInfo
     }, 
   }

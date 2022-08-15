@@ -5,7 +5,7 @@ import React, { useState, useEffect, useRef, useLayoutEffect } from 'react'
  * @param {string} theme - Name of curent theme
  * @return {string} previousTheme
  */
-function usePrevious(theme: string) {
+function usePrevious({ theme }: { theme: string }): string | undefined {
   const ref = useRef<string>()
   useEffect(() => {
     ref.current = theme
@@ -23,11 +23,11 @@ function useStorageTheme(key: string): [string, React.Dispatch<React.SetStateAct
     !!window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
 
   const [theme, setTheme] = useState(
-    // use stored theme fallback to user preference
+ 
     localStorage.getItem(key) || userPreference
   )
 
-  // update stored theme
+ 
   useEffect(() => {
     localStorage.setItem(key.toString(), theme.toString())
   }, [theme, key])
@@ -40,19 +40,19 @@ interface IThemeContext{
   toggleTheme: () => void
 }
 
-// create context
+ 
 export const ThemeContext = React.createContext<IThemeContext>({ theme: "", toggleTheme: () => {} })
 
 interface IThemeProvider{
   children: React.ReactNode
 }
 
-// create context provider
+ 
 export const ThemeProvider = ({ children }: IThemeProvider) => {
   const [theme, setTheme] = useStorageTheme('theme')
 
-  // update root element class on theme change
-  const oldTheme = usePrevious(theme.toString())
+ 
+  const oldTheme = usePrevious({ theme: theme.toString() })
   useLayoutEffect(() => {
     document.documentElement.classList.remove(`theme-${oldTheme}`)
     document.documentElement.classList.add(`theme-${theme}`)

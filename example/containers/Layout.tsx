@@ -13,7 +13,7 @@ function Layout({ children }: ILayout) {
 
   return <SidebarProvider>
     <div
-      className={`flex h-screen bg-gray-50 dark:bg-gray-900 ${isSidebarOpen && 'overflow-hidden'}`}
+      className={`flex h-screen flex-row-reverse bg-gray-50 dark:bg-gray-900 ${isSidebarOpen && 'overflow-hidden'}`}
       >
       <Sidebar />
       <div className="flex flex-col flex-1 w-full">
